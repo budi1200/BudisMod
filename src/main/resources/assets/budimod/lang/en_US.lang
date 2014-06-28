@@ -1,0 +1,11 @@
+tile.LolBlock.name=LoL Block (creative only)
+tile.HelloWorldBlock.name=Hello World Block (creative only)
+tile.blazing.name=Blaze Block
+
+itemGroup.Random Stuff= Budis Stuff
+
+item.LolItem.name=Its a LoL item
+item.pickaxeEnder.name=Ender Pickaxe
+item.enderiumIngot.name= Ender Ingot
+item.superoptool.name= SUPER OP PICKAXE
+entity.EntityTest.name=Test Mob
