@@ -22,7 +22,7 @@ public class EnderiumPickaxe extends ItemPickaxe
     }
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
     {
-        par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 3));
+        par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 1));
         return true;
     }
 }

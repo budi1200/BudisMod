@@ -15,7 +15,7 @@ public class EnderiumSword extends ItemSword {
 
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
     {
-        par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.wither.id, 100, 1));
+        par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.wither.id, 100, 2));
         return true;
     }
 }
