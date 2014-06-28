@@ -1,6 +1,8 @@
-package com.budi.stuff;
+package com.budi.tools;
 
 import com.budi.core.budimain;
+import com.budi.stuff.budioptool;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;

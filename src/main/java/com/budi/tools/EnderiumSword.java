@@ -1,4 +1,4 @@
-package com.budi.stuff;
+package com.budi.tools;
 
 import com.budi.core.budimain;
 import net.minecraft.entity.EntityLivingBase;
