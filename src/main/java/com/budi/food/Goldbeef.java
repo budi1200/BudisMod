@@ -1,4 +1,4 @@
-package com.budi.stuff;
+package com.budi.food;
 
 import com.budi.core.budimain;
 import cpw.mods.fml.relauncher.Side;
