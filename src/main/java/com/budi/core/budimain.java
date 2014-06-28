@@ -303,7 +303,7 @@ public class budimain
         GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 4), new ItemStack(budimain.enderblock));
         GameRegistry.addShapelessRecipe(new ItemStack(budimain.enderblock, 1), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl));
         GameRegistry.addShapelessRecipe(new ItemStack(Items.nether_star, 4), new ItemStack(budimain.starblock));
-        GameRegistry.addRecipe(new ItemStack(budimain.starblock, 1), new Object[]{ "XXX", "XXX", "XXX", ('X'), Items.nether_star});
+        GameRegistry.addShapelessRecipe(new ItemStack(budimain.starblock, 1), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star));
         GameRegistry.addSmelting(budimain.enderore, new ItemStack(budimain.enderiumdust), 0.8F);
         GameRegistry.addShapelessRecipe(new ItemStack(budimain.rawenderium, 1), new ItemStack(budimain.enderiumdust), Items.diamond, Items.gold_ingot, Items.iron_ingot, Items.ender_pearl);
         GameRegistry.addSmelting(budimain.rawenderium, new ItemStack(budimain.enderiumIngot), 1.0F);
