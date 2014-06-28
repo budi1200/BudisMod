@@ -33,6 +33,9 @@ public class Goldbeef extends ItemFood {
     protected void onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
             if (!par2World.isRemote) {
                 par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 20, 50));
+                par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 5000, 1));
+                par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.fireResistance.id, 5000, 0));
+                par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 5000, 1));
             }
         }
 
