@@ -4,6 +4,12 @@ import com.budi.alphabet.*;
 import com.budi.armor.enderArmor;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
+import com.budi.tools.EnderiumAxe;
+import com.budi.tools.EnderiumPickaxe;
+import com.budi.tools.EnderiumShovel;
+import com.budi.tools.EnderiumSword;
+import com.budi.tools.superoptool;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -309,7 +315,10 @@ public class budimain
         GameRegistry.addSmelting(budimain.rawenderium, new ItemStack(budimain.enderiumIngot), 1.0F);
         GameRegistry.addRecipe(new ItemStack(budimain.pickaxeEnder, 1), new Object[]{ "XXX", " C ", " # ", ('X'), enderiumIngot, ('#'), Items.diamond, ('C'), Items.diamond_pickaxe});
         GameRegistry.addRecipe(new ItemStack(budimain.superoptool, 1), new Object[]{ "XCX", "YOY", " P ", ('X'), enderiumIngot, ('C'), pickaxeEnder, ('Y'), Blocks.redstone_block, ('O'), Items.nether_star, ('P'), Items.diamond});
-
+        GameRegistry.addRecipe(new ItemStack(budimain.swordEnder, 1), new Object[]{ "WEW", " E ", " S ", ('W'), new ItemStack(Items.skull, 1, 1), ('E'), enderiumIngot, ('S'), Items.diamond_sword});
+        GameRegistry.addRecipe(new ItemStack(budimain.axeEnder, 1), new Object[]{ "EE ", "SE ", " A ", ('E'), enderiumIngot, ('S'), Items.spider_eye, ('A'), Items.diamond_axe});
+        GameRegistry.addRecipe(new ItemStack(budimain.shovelEnder, 1), new Object[]{ " E ", " E ", " S ", ('E'), enderiumIngot, ('S'), Items.diamond_shovel});
+        
         GameRegistry.addRecipe(new ItemStack(budimain.helmetender, 1), new Object[]{ "EHE", "E E", "   ", ('E'), enderiumIngot, ('H'), Items.diamond_helmet});
         GameRegistry.addRecipe(new ItemStack(budimain.chestplateender, 1), new Object[]{ "E E", "ECE", "EEE", ('E'), enderiumIngot, ('C'), Items.diamond_chestplate});
         GameRegistry.addRecipe(new ItemStack(budimain.leggingsender, 1), new Object[]{ "ELE", "E E", "E E", ('E'), enderiumIngot, ('L'), Items.diamond_leggings});
