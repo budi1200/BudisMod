@@ -26,7 +26,7 @@ public class Goldbeef extends ItemFood {
     }
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
     {
-        par3List.add("Insta Heal!");
+        par3List.add("Insta Heal! // ITEM IS WIP! //");
 
     }
 
