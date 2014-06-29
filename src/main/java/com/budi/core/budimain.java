@@ -12,10 +12,12 @@ import com.budi.stuff.*;
 import com.budi.tools.*;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,11 +31,22 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import java.util.Random;
 
-@Mod(modid = budimain.MODID, version = budimain.VERSION)
+@Mod(modid = budimain.MODID, version = budimain.VERSION, name = budimain.name)
 public class budimain
 {
-    public static final String MODID = "budiMod";
+	public static final String MODID = "budimod", name = "BudiMod!";
     public static final String VERSION = "5.0";
+    
+    @Instance("budimod")
+    public static budimain instance;
+    
+    @SidedProxy(clientSide="com.budi.proxy.ClientProxy", serverSide ="com.budi.proxy.CommonProxy")
+    public static CommonProxy proxy;
+    
+    public void registerBlock(Block block, String name){
+    	GameRegistry.registerBlock(block, block.getUnlocalizedName());
+    	LanguageRegistry.addName(block, name);
+    }
 
     // creative tab
     public static CreativeTabs tabrandom = new creativeTab("Budis Stuff");
@@ -47,6 +60,10 @@ public class budimain
     public static Block BlockEnder;
     public static Block BlockNetherStar;
     public static Block BlockEnderTorch;
+    public static Block BlockEnderFurnaceIdle;
+    public static Block BlockEnderFurnaceActive;
+    
+    public static int furnaceender = 0;
 
     // items
     public static Item LolItem;
@@ -109,11 +126,7 @@ public class budimain
         EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
         EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));
     }
-    @Mod.Instance(MODID)
-    public static budimain instance;
 
-    @SidedProxy(clientSide="com.budi.proxy.ClientProxy", serverSide ="com.budi.proxy.CommonProxy")
-    public static CommonProxy proxy;
     // add blocks/items/entity's
     @Mod.EventHandler
 
@@ -150,7 +163,14 @@ public class budimain
 
         BlockNetherStar = new BlockNetherStar().setBlockName("BlockNetherStar").setHardness(7F).setResistance(50F).setStepSound(Block.soundTypeMetal);
         GameRegistry.registerBlock(BlockNetherStar, BlockNetherStar.getUnlocalizedName().substring(5));
-
+        
+        // furnace
+        
+        BlockEnderFurnaceIdle = new BlockEnderFurnace(false).setBlockName("BlockEnderFurnaceIdle").setHardness(3.5F).setCreativeTab(budimain.tabrandom);
+        GameRegistry.registerBlock(BlockEnderFurnaceIdle, "BlockEnderFurnaceIdle");
+        
+        BlockEnderFurnaceActive = new BlockEnderFurnace(true).setBlockName("BlockEnderFurnaceActive").setHardness(3.5F);
+        GameRegistry.registerBlock(BlockEnderFurnaceActive, "BlockEnderFurnaceActive");
         // Items
 
 
@@ -324,7 +344,8 @@ public class budimain
         GameRegistry.addRecipe(new ItemStack(budimain.chestplateender, 1), new Object[]{ "E E", "ECE", "EEE", ('E'), enderiumIngot, ('C'), Items.diamond_chestplate});
         GameRegistry.addRecipe(new ItemStack(budimain.leggingsender, 1), new Object[]{ "ELE", "E E", "E E", ('E'), enderiumIngot, ('L'), Items.diamond_leggings});
         GameRegistry.addRecipe(new ItemStack(budimain.bootsender, 1), new Object[]{ "   ", "EBE", "E E", ('E'), enderiumIngot, ('B'), Items.diamond_boots});
-
+        
+        proxy.registerTileEntities();
         proxy.registerRenderers();
     }
 
