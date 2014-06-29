@@ -1,7 +1,4 @@
-package com.budi.blocks;
-
-
-import java.util.List;
+package com.budi.stuff;
 
 import com.budi.core.budimain;
 
@@ -11,24 +8,27 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class blazingBlock extends Block {
+public class HelloWorldBlock extends Block {
 
-    public blazingBlock() {
-        super(Material.rock);
+    public HelloWorldBlock() {
+        super(Material.ground);
         this.setCreativeTab(budimain.tabrandom);
-        this.setLightLevel(1);
-        this.setLightOpacity(5);
+
     }
-
     @SideOnly(Side.CLIENT)
-
     @Override
     public void registerBlockIcons(IIconRegister p_149651_1_)
     {
         blockIcon = p_149651_1_.registerIcon(budimain.MODID + ":" + this.getUnlocalizedName().substring(5));
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
+    {
+        return blockIcon;
+
     }
 }

@@ -2,19 +2,6 @@ package com.budi.core;
 
 import com.budi.alphabet.*;
 import com.budi.armor.enderArmor;
-import com.budi.blocks.HelloWorldBlock;
-import com.budi.blocks.LolBlock;
-import com.budi.blocks.blazingBlock;
-import com.budi.blocks.enderBlock;
-import com.budi.blocks.enderTorch;
-import com.budi.blocks.enderore;
-import com.budi.blocks.starBlock;
-import com.budi.food.Goldbeef;
-import com.budi.food.rawgoldbeef;
-import com.budi.items.LolItem;
-import com.budi.items.enderiumIngot;
-import com.budi.items.enderiumdust;
-import com.budi.items.rawenderium;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
 import com.budi.tools.EnderiumAxe;
@@ -71,7 +58,6 @@ public class budimain
     public static Item swordEnder;
     public static Item superoptool;
     public static Item Goldbeef;
-    public static Item RawGoldBeef;
 
     public static Item helmetender;
     public static Item chestplateender;
@@ -225,10 +211,6 @@ public class budimain
         // gold beef
         Goldbeef = new Goldbeef(5000, 10, false).setUnlocalizedName("Goldbeef").setTextureName(budimain.MODID + ":" + "Goldbeef");
         GameRegistry.registerItem(Goldbeef, Goldbeef.getUnlocalizedName().substring(5));
-        
-        // raw gold beef
-        RawGoldBeef = new rawgoldbeef(5000, 10, false).setUnlocalizedName("RawGoldBeef").setTextureName(budimain.MODID + ":" + "RawGoldBeef");
-        GameRegistry.registerItem(RawGoldBeef, RawGoldBeef.getUnlocalizedName().substring(5));
 
         // ABECEDA WOO
 
@@ -336,11 +318,6 @@ public class budimain
         GameRegistry.addRecipe(new ItemStack(budimain.swordEnder, 1), new Object[]{ "WEW", " E ", " S ", ('W'), new ItemStack(Items.skull, 1, 1), ('E'), enderiumIngot, ('S'), Items.diamond_sword});
         GameRegistry.addRecipe(new ItemStack(budimain.axeEnder, 1), new Object[]{ "EE ", "SE ", " A ", ('E'), enderiumIngot, ('S'), Items.spider_eye, ('A'), Items.diamond_axe});
         GameRegistry.addRecipe(new ItemStack(budimain.shovelEnder, 1), new Object[]{ " E ", " E ", " S ", ('E'), enderiumIngot, ('S'), Items.diamond_shovel});
-        GameRegistry.addShapelessRecipe(new ItemStack(budimain.RawGoldBeef, 1), new ItemStack(Items.golden_apple, 1, 1), new ItemStack(Items.golden_apple, 1, 1), new ItemStack(Items.beef), new ItemStack(Blocks.gold_block), new ItemStack(Blocks.gold_block), new ItemStack(Blocks.gold_block));
-        GameRegistry.addSmelting(budimain.RawGoldBeef, new ItemStack(budimain.Goldbeef), 10.0F);
-        
-        
-        
         
         GameRegistry.addRecipe(new ItemStack(budimain.helmetender, 1), new Object[]{ "EHE", "E E", "   ", ('E'), enderiumIngot, ('H'), Items.diamond_helmet});
         GameRegistry.addRecipe(new ItemStack(budimain.chestplateender, 1), new Object[]{ "E E", "ECE", "EEE", ('E'), enderiumIngot, ('C'), Items.diamond_chestplate});
