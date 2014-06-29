@@ -39,7 +39,7 @@ public class BlockEnderFurnace extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconregister){
 		this.blockIcon = iconregister.registerIcon(budimain.MODID + ":" + "FurnaceSide");
-		this.front = iconregister.registerIcon(this.isBurning2 ? budimain.MODID + ":" + "FurnaceActive" : budimain.MODID + "FurnaceIdle");
+		this.front = iconregister.registerIcon(this.isBurning ? budimain.MODID + ":" + "FurnaceActive" : budimain.MODID + ":" + "FurnaceIdle");
 		this.top = iconregister.registerIcon(budimain.MODID + ":" + "FurnaceTop");
 	}
 	
@@ -61,8 +61,8 @@ public class BlockEnderFurnace extends BlockContainer {
                     }
                     else if (!player.isSneaking())
                     {
-                                    TileEntityEnderFurnace tileentitypestle = (TileEntityEnderFurnace)world.getTileEntity(x, y, z);
-                                    if (tileentitypestle != null)
+                                    TileEntityEnderFurnace tileentityenderfurnace = (TileEntityEnderFurnace)world.getTileEntity(x, y, z);
+                                    if (tileentityenderfurnace != null)
                                     {
                                      player.openGui(budimain.instance, budimain.furnaceender, world, (int) player.posX, (int) player.posY, (int) player.posZ);
                                     }
@@ -141,7 +141,7 @@ public class BlockEnderFurnace extends BlockContainer {
 	public static void updateBlockState(boolean burning, World world, int x, int y, int z){
 		int direction = world.getBlockMetadata(x, y, z);
 		TileEntity tileentity = world.getTileEntity(x, y, z);
-		isBurning = true;
+		isBurning2 = true;
 		
 		if(burning){
 			world.setBlock(x, y, z, budimain.BlockEnderFurnaceActive);
@@ -158,7 +158,7 @@ public class BlockEnderFurnace extends BlockContainer {
 	}
 	
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta){
-		if(!isBurning){
+		if(!isBurning2){
 			TileEntityEnderFurnace tileentityenderfurnace = (TileEntityEnderFurnace)world.getTileEntity(x, y, z);
 			
 			if(tileentityenderfurnace != null){
@@ -201,7 +201,7 @@ public class BlockEnderFurnace extends BlockContainer {
 	
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World world, int x, int y, int z, Random random){
-		if(this.isBurning2){
+		if(this.isBurning){
 			int direction = world.getBlockMetadata(x, y, z);
 			
 			float xx = (float) x + 0.5F, yy = (float) y + random.nextFloat() * 6.0F /16.0F, zz = (float) z + 0.5F, xx2 = random.nextFloat() * 0.3F - 0.2F, zz2 = 0.5F;
