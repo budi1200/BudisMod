@@ -39,3 +39,5 @@ options.txt
 /saves/
 >>>>>>> origin/master
 /eclipse/
+build.gradle
+/gradle/

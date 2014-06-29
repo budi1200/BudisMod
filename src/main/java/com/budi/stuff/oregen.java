@@ -23,7 +23,7 @@ public class oregen implements IWorldGenerator {
 
     }
     public void generateSurface(World world, Random random, int x, int z) {
-        this.addOreSpawn(budimain.enderore, world, random, x, z, 16, 16, 1, 2, 0, 20);
+        this.addOreSpawn(budimain.BlockEnderOre, world, random, x, z, 16, 16, 1, 2, 0, 20);
     }
     public void generateNether(World world, Random random, int x, int z) {
 
