@@ -2,6 +2,7 @@ package com.budi.core;
 
 import com.budi.alphabet.*;
 import com.budi.armor.enderArmor;
+import com.budi.blocks.*;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
 import com.budi.tools.EnderiumAxe;
@@ -120,34 +121,34 @@ public class budimain
     {
         // Blocks
         //ender ore
-        enderore = new enderore(Material.rock).setBlockName("enderore").setCreativeTab(tabrandom);
+        enderore = new BlockEnderOre(Material.rock).setBlockName("enderore").setCreativeTab(tabrandom);
         GameRegistry.registerBlock(enderore, "enderore");
 
         // lol block:D
 
-        LolBlock = new LolBlock().setBlockName("LolBlock").setHardness(3F).setResistance(50F);
+        LolBlock = new BlockLol().setBlockName("LolBlock").setHardness(3F).setResistance(50F);
         LolBlock.setHarvestLevel("pickaxe", 3);
         GameRegistry.registerBlock(LolBlock, LolBlock.getUnlocalizedName().substring(5));
 
         //Hello World block
 
-        HelloWorld = new HelloWorldBlock().setBlockName("HelloWorldBlock").setHardness(0.0F);
+        HelloWorld = new BlockHelloWorld().setBlockName("HelloWorldBlock").setHardness(0.0F);
         GameRegistry.registerBlock(HelloWorld, HelloWorld.getUnlocalizedName().substring(5));
         //blazing block
 
-        blazing = new blazingBlock().setBlockName("blazing").setHardness(4F).setResistance(20F);
+        blazing = new BlockBlaze().setBlockName("blazing").setHardness(4F).setResistance(20F);
         GameRegistry.registerBlock(blazing, blazing.getUnlocalizedName().substring(5));
 
 
         // ender block
 
-        enderblock = new enderBlock().setBlockName("enderBlock").setHardness(5F).setResistance(20F);
+        enderblock = new BlockEnder().setBlockName("enderBlock").setHardness(5F).setResistance(20F);
         GameRegistry.registerBlock(enderblock, enderblock.getUnlocalizedName().substring(5));
 
 
         // NETHER STAR BLOCK WOOOO
 
-        starblock = new starBlock().setBlockName("netherstarBlock").setHardness(7F).setResistance(50F).setStepSound(Block.soundTypeMetal);
+        starblock = new BlockNetherStar().setBlockName("netherstarBlock").setHardness(7F).setResistance(50F).setStepSound(Block.soundTypeMetal);
         GameRegistry.registerBlock(starblock, starblock.getUnlocalizedName().substring(5));
 
         // Items
@@ -205,11 +206,11 @@ public class budimain
         GameRegistry.registerWorldGenerator(oregen, 1);
 
         // supertorch
-        enderTorch = new enderTorch().setBlockName("SuperTorch").setHardness(0F).setResistance(20F);
+        enderTorch = new BlockEnderTorch().setBlockName("SuperTorch").setHardness(0F).setResistance(20F);
         GameRegistry.registerBlock(enderTorch, enderTorch.getUnlocalizedName().substring(5));
 
         // gold beef
-        Goldbeef = new Goldbeef(5000, 10, false).setUnlocalizedName("Goldbeef").setTextureName(budimain.MODID + ":" + "Goldbeef");
+        Goldbeef = new com.budi.food.Goldbeef(5000, 10, false).setUnlocalizedName("Goldbeef").setTextureName(budimain.MODID + ":" + "Goldbeef");
         GameRegistry.registerItem(Goldbeef, Goldbeef.getUnlocalizedName().substring(5));
 
         // ABECEDA WOO
