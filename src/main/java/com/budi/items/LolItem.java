@@ -1,4 +1,4 @@
-package com.budi.stuff;
+package com.budi.items;
 
 import com.budi.core.budimain;
 

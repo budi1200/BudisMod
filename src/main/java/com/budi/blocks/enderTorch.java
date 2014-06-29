@@ -1,4 +1,4 @@
-package com.budi.stuff;
+package com.budi.blocks;
 
 import java.util.Random;
 

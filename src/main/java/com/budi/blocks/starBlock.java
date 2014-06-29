@@ -1,4 +1,4 @@
-package com.budi.stuff;
+package com.budi.blocks;
 
 
 import java.util.List;
@@ -15,13 +15,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class blazingBlock extends Block {
+public class starBlock extends Block {
 
-    public blazingBlock() {
+    public starBlock() {
         super(Material.rock);
         this.setCreativeTab(budimain.tabrandom);
-        this.setLightLevel(1);
-        this.setLightOpacity(5);
+
     }
 
     @SideOnly(Side.CLIENT)
