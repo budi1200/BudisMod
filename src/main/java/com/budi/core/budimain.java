@@ -3,13 +3,13 @@ package com.budi.core;
 import com.budi.alphabet.*;
 import com.budi.armor.enderArmor;
 import com.budi.blocks.*;
+import com.budi.items.LolItem;
+import com.budi.items.enderiumIngot;
+import com.budi.items.enderiumdust;
+import com.budi.items.rawenderium;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
-import com.budi.tools.EnderiumAxe;
-import com.budi.tools.EnderiumPickaxe;
-import com.budi.tools.EnderiumShovel;
-import com.budi.tools.EnderiumSword;
-import com.budi.tools.superoptool;
+import com.budi.tools.*;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -40,13 +40,13 @@ public class budimain
     public static CreativeTabs tabwords = new wordsTab("Budis Words");
     // blocks
 
-    public static Block LolBlock;
-    public static Block HelloWorld;
-    public static Block enderore;
-    public static Block blazing;
-    public static Block enderblock;
-    public static Block starblock;
-    public static Block enderTorch;
+    public static Block BlockLol;
+    public static Block BlockHelloWorld;
+    public static Block BlockEnderOre;
+    public static Block BlockBlaze;
+    public static Block BlockEnder;
+    public static Block BlockNetherStar;
+    public static Block BlockEnderTorch;
 
     // items
     public static Item LolItem;
@@ -121,35 +121,35 @@ public class budimain
     {
         // Blocks
         //ender ore
-        enderore = new BlockEnderOre(Material.rock).setBlockName("enderore").setCreativeTab(tabrandom);
-        GameRegistry.registerBlock(enderore, "enderore");
+        BlockEnderOre = new BlockEnderOre(Material.rock).setBlockName("BlockEnderOre").setCreativeTab(tabrandom);
+        GameRegistry.registerBlock(BlockEnderOre, "BlockEnderOre");
 
         // lol block:D
 
-        LolBlock = new BlockLol().setBlockName("LolBlock").setHardness(3F).setResistance(50F);
-        LolBlock.setHarvestLevel("pickaxe", 3);
-        GameRegistry.registerBlock(LolBlock, LolBlock.getUnlocalizedName().substring(5));
+        BlockLol = new BlockLol().setBlockName("BlockLol").setHardness(3F).setResistance(50F);
+        BlockLol.setHarvestLevel("pickaxe", 3);
+        GameRegistry.registerBlock(BlockLol, BlockLol.getUnlocalizedName().substring(5));
 
         //Hello World block
 
-        HelloWorld = new BlockHelloWorld().setBlockName("HelloWorldBlock").setHardness(0.0F);
-        GameRegistry.registerBlock(HelloWorld, HelloWorld.getUnlocalizedName().substring(5));
+        BlockHelloWorld = new BlockHelloWorld().setBlockName("BlockHelloWorld").setHardness(0.0F);
+        GameRegistry.registerBlock(BlockHelloWorld, BlockHelloWorld.getUnlocalizedName().substring(5));
         //blazing block
 
-        blazing = new BlockBlaze().setBlockName("blazing").setHardness(4F).setResistance(20F);
-        GameRegistry.registerBlock(blazing, blazing.getUnlocalizedName().substring(5));
+        BlockBlaze = new BlockBlaze().setBlockName("BlockBlaze").setHardness(4F).setResistance(20F);
+        GameRegistry.registerBlock(BlockBlaze, BlockBlaze.getUnlocalizedName().substring(5));
 
 
         // ender block
 
-        enderblock = new BlockEnder().setBlockName("enderBlock").setHardness(5F).setResistance(20F);
-        GameRegistry.registerBlock(enderblock, enderblock.getUnlocalizedName().substring(5));
+        BlockEnder = new BlockEnder().setBlockName("BlockEnder").setHardness(5F).setResistance(20F);
+        GameRegistry.registerBlock(BlockEnder, BlockEnder.getUnlocalizedName().substring(5));
 
 
         // NETHER STAR BLOCK WOOOO
 
-        starblock = new BlockNetherStar().setBlockName("netherstarBlock").setHardness(7F).setResistance(50F).setStepSound(Block.soundTypeMetal);
-        GameRegistry.registerBlock(starblock, starblock.getUnlocalizedName().substring(5));
+        BlockNetherStar = new BlockNetherStar().setBlockName("BlockNetherStar").setHardness(7F).setResistance(50F).setStepSound(Block.soundTypeMetal);
+        GameRegistry.registerBlock(BlockNetherStar, BlockNetherStar.getUnlocalizedName().substring(5));
 
         // Items
 
@@ -176,25 +176,25 @@ public class budimain
 
         // Enderium Pickaxe
 
-        pickaxeEnder = new EnderiumPickaxe(enderium).setUnlocalizedName("pickaxeEnder").setTextureName(budimain.MODID + ":" + "pickaxeEnder");
+        pickaxeEnder = new EnderPickaxe(enderium).setUnlocalizedName("pickaxeEnder").setTextureName(budimain.MODID + ":" + "pickaxeEnder");
         GameRegistry.registerItem(pickaxeEnder, "pickaxeEnder");
 
         // enderium shovel
 
-        shovelEnder = new EnderiumShovel(enderium).setUnlocalizedName("shovelEnder").setTextureName(budimain.MODID + ":" + "shovelEnder");
+        shovelEnder = new EnderShovel(enderium).setUnlocalizedName("shovelEnder").setTextureName(budimain.MODID + ":" + "shovelEnder");
         GameRegistry.registerItem(shovelEnder, "shovelEnder");
         // enderium axe
 
-        axeEnder = new EnderiumAxe(enderium).setUnlocalizedName("axeEnder").setTextureName(budimain.MODID + ":"	+ "axeEnder");
+        axeEnder = new EnderAxe(enderium).setUnlocalizedName("axeEnder").setTextureName(budimain.MODID + ":"	+ "axeEnder");
         GameRegistry.registerItem(axeEnder, "axeEnder");
 
         // enderium sword
 
-        swordEnder = new EnderiumSword(enderium).setUnlocalizedName("swordEnder").setTextureName(budimain.MODID + ":" + "swordEnder");
+        swordEnder = new EnderSword(enderium).setUnlocalizedName("swordEnder").setTextureName(budimain.MODID + ":" + "swordEnder");
         GameRegistry.registerItem(swordEnder, "swordEnder");
 
         // super op tool
-        superoptool = new superoptool(oprock).setUnlocalizedName("superoptool").setTextureName(budimain.MODID + ":" + "superoptool");
+        superoptool = new EnderOpTool(oprock).setUnlocalizedName("superoptool").setTextureName(budimain.MODID + ":" + "superoptool");
         GameRegistry.registerItem(superoptool, superoptool.getUnlocalizedName().substring(5));
 
         // test entity
@@ -206,8 +206,8 @@ public class budimain
         GameRegistry.registerWorldGenerator(oregen, 1);
 
         // supertorch
-        enderTorch = new BlockEnderTorch().setBlockName("SuperTorch").setHardness(0F).setResistance(20F);
-        GameRegistry.registerBlock(enderTorch, enderTorch.getUnlocalizedName().substring(5));
+        BlockEnderTorch = new BlockEnderTorch().setBlockName("BlockEnderTorch").setHardness(0F).setResistance(20F);
+        GameRegistry.registerBlock(BlockEnderTorch, BlockEnderTorch.getUnlocalizedName().substring(5));
 
         // gold beef
         Goldbeef = new com.budi.food.Goldbeef(5000, 10, false).setUnlocalizedName("Goldbeef").setTextureName(budimain.MODID + ":" + "Goldbeef");
@@ -305,13 +305,13 @@ public class budimain
         bootsender = new enderArmor(enderArmor, renderEnderArmor, 3).setUnlocalizedName("bootsender").setCreativeTab(budimain.tabrandom);
         GameRegistry.registerItem(bootsender, "bootsender");
         // Recepies
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.blaze_rod, 4), new ItemStack(budimain.blazing));
-        GameRegistry.addShapelessRecipe(new ItemStack(budimain.blazing, 1), new ItemStack(Items.blaze_rod), new ItemStack(Items.blaze_rod), new ItemStack(Items.blaze_rod), new ItemStack(Items.blaze_rod));
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 4), new ItemStack(budimain.enderblock));
-        GameRegistry.addShapelessRecipe(new ItemStack(budimain.enderblock, 1), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl));
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.nether_star, 4), new ItemStack(budimain.starblock));
-        GameRegistry.addShapelessRecipe(new ItemStack(budimain.starblock, 1), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star));
-        GameRegistry.addSmelting(budimain.enderore, new ItemStack(budimain.enderiumdust), 0.8F);
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.blaze_rod, 4), new ItemStack(budimain.BlockBlaze));
+        GameRegistry.addShapelessRecipe(new ItemStack(budimain.BlockBlaze, 1), new ItemStack(Items.blaze_rod), new ItemStack(Items.blaze_rod), new ItemStack(Items.blaze_rod), new ItemStack(Items.blaze_rod));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.ender_pearl, 4), new ItemStack(budimain.BlockEnder));
+        GameRegistry.addShapelessRecipe(new ItemStack(budimain.BlockEnder, 1), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl));
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.nether_star, 4), new ItemStack(budimain.BlockNetherStar));
+        GameRegistry.addShapelessRecipe(new ItemStack(budimain.BlockNetherStar, 1), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star));
+        GameRegistry.addSmelting(budimain.BlockEnderOre, new ItemStack(budimain.enderiumdust), 0.8F);
         GameRegistry.addShapelessRecipe(new ItemStack(budimain.rawenderium, 1), new ItemStack(budimain.enderiumdust), Items.diamond, Items.gold_ingot, Items.iron_ingot, Items.ender_pearl);
         GameRegistry.addSmelting(budimain.rawenderium, new ItemStack(budimain.enderiumIngot), 1.0F);
         GameRegistry.addRecipe(new ItemStack(budimain.pickaxeEnder, 1), new Object[]{ "XXX", " C ", " # ", ('X'), enderiumIngot, ('#'), Items.diamond, ('C'), Items.diamond_pickaxe});
