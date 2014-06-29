@@ -16,9 +16,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class superoptool extends budioptool
+public class EnderOpTool extends budioptool
 {
-    public superoptool(ToolMaterial material)
+    public EnderOpTool(ToolMaterial material)
     {
         super(material);
         this.setCreativeTab(budimain.tabrandom);

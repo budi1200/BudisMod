@@ -7,8 +7,8 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
-public class EnderiumSword extends ItemSword {
-    public EnderiumSword(ToolMaterial material) {
+public class EnderSword extends ItemSword {
+    public EnderSword(ToolMaterial material) {
         super(material);
         this.setCreativeTab(budimain.tabrandom);
     }
