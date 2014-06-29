@@ -1,4 +1,4 @@
-package com.budi.stuff;
+package com.budi.blocks;
 
 import com.budi.core.budimain;
 import net.minecraft.block.Block;
