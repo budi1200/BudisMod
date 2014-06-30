@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiEnderFurnace extends GuiContainer{
 	
-	private static final ResourceLocation furnaceGuiTextures = new ResourceLocation("textures/gui/container/furnace.png");
+	private static final ResourceLocation furnaceGuiTextures = new ResourceLocation(budimain.MODID + ":" + "/gui/EnderFurnace.png");
 	private TileEntityEnderFurnace tileFurnace;
 	
 	public GuiEnderFurnace(InventoryPlayer invPlayer, TileEntityEnderFurnace tile) {

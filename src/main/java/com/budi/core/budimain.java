@@ -63,7 +63,7 @@ public class budimain
     public static Block BlockEnderFurnaceIdle;
     public static Block BlockEnderFurnaceActive;
     
-    public static int furnaceender = 0;
+    public static final int guiID = 1;
 
     // items
     public static Item LolItem;

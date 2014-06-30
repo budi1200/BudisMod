@@ -2,6 +2,7 @@ package com.budi.core;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -52,7 +53,6 @@ public class BlockEnderFurnace extends BlockContainer {
 			return this.blockIcon;
 		}
 	}
-	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
                     if (world.isRemote)
@@ -64,7 +64,8 @@ public class BlockEnderFurnace extends BlockContainer {
                                     TileEntityEnderFurnace tileentityenderfurnace = (TileEntityEnderFurnace)world.getTileEntity(x, y, z);
                                     if (tileentityenderfurnace != null)
                                     {
-                                     player.openGui(budimain.instance, budimain.furnaceender, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+                                     player.openGui(budimain.instance, budimain.guiID, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+                                     System.out.println("working");
                                     }
                                     return true;
                     }
@@ -72,6 +73,7 @@ public class BlockEnderFurnace extends BlockContainer {
                     return false;
      
     }
+
 	
 	public Item getItemDropped(int par1, Random random, int par3){
 		return Item.getItemFromBlock(budimain.BlockEnderFurnaceIdle);
