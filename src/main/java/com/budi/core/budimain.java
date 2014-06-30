@@ -60,10 +60,9 @@ public class budimain
     public static Block BlockEnder;
     public static Block BlockNetherStar;
     public static Block BlockEnderTorch;
-    public static Block BlockEnderFurnaceIdle;
-    public static Block BlockEnderFurnaceActive;
-    
-    public static final int guiID = 0;
+    //public static Block BlockEnderFurnaceIdle;
+   // public static Block BlockEnderFurnaceActive;
+   // public static final int guiIDEnderFurnace = 0;
 
     // items
     public static Item LolItem;
@@ -164,13 +163,13 @@ public class budimain
         BlockNetherStar = new BlockNetherStar().setBlockName("BlockNetherStar").setHardness(7F).setResistance(50F).setStepSound(Block.soundTypeMetal);
         GameRegistry.registerBlock(BlockNetherStar, BlockNetherStar.getUnlocalizedName().substring(5));
         
-        // furnace
+        /* furnace
         
         BlockEnderFurnaceIdle = new BlockEnderFurnace(false).setBlockName("BlockEnderFurnaceIdle").setHardness(3.5F).setCreativeTab(budimain.tabrandom);
         GameRegistry.registerBlock(BlockEnderFurnaceIdle, "BlockEnderFurnaceIdle");
         
         BlockEnderFurnaceActive = new BlockEnderFurnace(true).setBlockName("BlockEnderFurnaceActive").setHardness(3.5F);
-        GameRegistry.registerBlock(BlockEnderFurnaceActive, "BlockEnderFurnaceActive");
+        GameRegistry.registerBlock(BlockEnderFurnaceActive, "BlockEnderFurnaceActive"); */
         // Items
 
 
@@ -345,7 +344,7 @@ public class budimain
         GameRegistry.addRecipe(new ItemStack(budimain.leggingsender, 1), new Object[]{ "ELE", "E E", "E E", ('E'), enderiumIngot, ('L'), Items.diamond_leggings});
         GameRegistry.addRecipe(new ItemStack(budimain.bootsender, 1), new Object[]{ "   ", "EBE", "E E", ('E'), enderiumIngot, ('B'), Items.diamond_boots});
         
-        proxy.registerTileEntities();
+       // proxy.registerTileEntities();
         proxy.registerRenderers();
     }
 
