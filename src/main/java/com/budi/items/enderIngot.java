@@ -9,9 +9,9 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class enderiumIngot extends Item{
+public class enderIngot extends Item{
 
-    public enderiumIngot() {
+    public enderIngot() {
         this.setCreativeTab(budimain.tabrandom);
     }
 }

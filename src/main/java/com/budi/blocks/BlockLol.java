@@ -30,4 +30,9 @@ public class BlockLol extends Block {
     {
         blockIcon = p_149651_1_.registerIcon(budimain.MODID + ":" + this.getUnlocalizedName().substring(5));
     }
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {
+        par3List.add("Creative Only(might change)");
+
+    }
 }

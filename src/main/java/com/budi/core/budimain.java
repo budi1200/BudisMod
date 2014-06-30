@@ -5,9 +5,7 @@ import com.budi.armor.enderArmor;
 import com.budi.blocks.*;
 import com.budi.food.*;
 import com.budi.items.LolItem;
-import com.budi.items.enderiumIngot;
-import com.budi.items.enderiumdust;
-import com.budi.items.rawenderium;
+import com.budi.items.*;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
 import com.budi.tools.*;
@@ -47,11 +45,6 @@ public class budimain
     
     @SidedProxy(clientSide="com.budi.proxy.ClientProxy", serverSide ="com.budi.proxy.CommonProxy")
     public static CommonProxy proxy;
-    
-    public void registerBlock(Block block, String name){
-    	GameRegistry.registerBlock(block, block.getUnlocalizedName());
-    	LanguageRegistry.addName(block, name);
-    }
 
     // creative tab
     public static CreativeTabs tabrandom = new creativeTab("Budis Stuff");
@@ -74,9 +67,9 @@ public class budimain
     public static Item pickaxeEnder;
     public static Item shovelEnder;
     public static Item axeEnder;
-    public static Item enderiumIngot;
-    public static Item enderiumdust;
-    public static Item rawenderium;
+    public static Item enderIngot;
+    public static Item enderdust;
+    public static Item rawender;
     public static Item swordEnder;
     public static Item superoptool;
     public static Item Goldbeef;
@@ -190,18 +183,18 @@ public class budimain
 
         // enderium dust
 
-        enderiumdust = new enderiumdust().setUnlocalizedName("enderiumdust").setTextureName(budimain.MODID + ":" + "enderiumdust");
-        GameRegistry.registerItem(enderiumdust, enderiumdust.getUnlocalizedName().substring(5));
+        enderdust = new enderdust().setUnlocalizedName("enderdust").setTextureName(budimain.MODID + ":" + "enderdust");
+        GameRegistry.registerItem(enderdust, enderdust.getUnlocalizedName().substring(5));
 
         // raw enderium
 
-        rawenderium = new rawenderium().setUnlocalizedName("rawenderium").setTextureName(budimain.MODID + ":" + "rawenderium");
-        GameRegistry.registerItem(rawenderium, rawenderium.getUnlocalizedName().substring(5));
+        rawender = new rawender().setUnlocalizedName("rawender").setTextureName(budimain.MODID + ":" + "rawender");
+        GameRegistry.registerItem(rawender, rawender.getUnlocalizedName().substring(5));
 
         //enderium ingot
 
-        enderiumIngot = new enderiumIngot().setUnlocalizedName("enderiumIngot").setTextureName(budimain.MODID + ":" + "enderiumIngot");
-        GameRegistry.registerItem(enderiumIngot, enderiumIngot.getUnlocalizedName().substring(5));
+        enderIngot = new enderIngot().setUnlocalizedName("enderIngot").setTextureName(budimain.MODID + ":" + "enderIngot");
+        GameRegistry.registerItem(enderIngot, enderIngot.getUnlocalizedName().substring(5));
 
         // lol item:D
 
@@ -348,20 +341,23 @@ public class budimain
         GameRegistry.addShapelessRecipe(new ItemStack(budimain.BlockEnder, 1), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl), new ItemStack(Items.ender_pearl));
         GameRegistry.addShapelessRecipe(new ItemStack(Items.nether_star, 4), new ItemStack(budimain.BlockNetherStar));
         GameRegistry.addShapelessRecipe(new ItemStack(budimain.BlockNetherStar, 1), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star), new ItemStack(Items.nether_star));
-        GameRegistry.addSmelting(budimain.BlockEnderOre, new ItemStack(budimain.enderiumdust), 0.8F);
-        GameRegistry.addShapelessRecipe(new ItemStack(budimain.rawenderium, 1), new ItemStack(budimain.enderiumdust), Items.diamond, Items.gold_ingot, Items.iron_ingot, Items.ender_pearl);
-        GameRegistry.addSmelting(budimain.rawenderium, new ItemStack(budimain.enderiumIngot), 1.0F);
-        GameRegistry.addRecipe(new ItemStack(budimain.pickaxeEnder, 1), new Object[]{ "XXX", " C ", " # ", ('X'), enderiumIngot, ('#'), Items.diamond, ('C'), Items.diamond_pickaxe});
-        GameRegistry.addRecipe(new ItemStack(budimain.superoptool, 1), new Object[]{ "XCX", "YOY", " P ", ('X'), enderiumIngot, ('C'), pickaxeEnder, ('Y'), Blocks.redstone_block, ('O'), Items.nether_star, ('P'), Items.diamond});
-        GameRegistry.addRecipe(new ItemStack(budimain.swordEnder, 1), new Object[]{ "WEW", " E ", " S ", ('W'), new ItemStack(Items.skull, 1, 1), ('E'), enderiumIngot, ('S'), Items.diamond_sword});
-        GameRegistry.addRecipe(new ItemStack(budimain.axeEnder, 1), new Object[]{ "EE ", "SE ", " A ", ('E'), enderiumIngot, ('S'), Items.spider_eye, ('A'), Items.diamond_axe});
-        GameRegistry.addRecipe(new ItemStack(budimain.shovelEnder, 1), new Object[]{ " E ", " E ", " S ", ('E'), enderiumIngot, ('S'), Items.diamond_shovel});
-        GameRegistry.addRecipe(new ItemStack(budimain.BlockEnderFurnaceIdle, 1), new Object[]{ "EEE", "E E", "EFE", ('E'), enderiumIngot, ('F'), Blocks.furnace});
+        GameRegistry.addSmelting(budimain.BlockEnderOre, new ItemStack(budimain.enderdust), 0.8F);
+        GameRegistry.addShapelessRecipe(new ItemStack(budimain.rawender, 1), new ItemStack(budimain.enderdust), Items.diamond, Items.gold_ingot, Items.iron_ingot, Items.ender_pearl);
+        GameRegistry.addSmelting(budimain.rawender, new ItemStack(budimain.enderIngot), 1.0F);
+        GameRegistry.addRecipe(new ItemStack(budimain.pickaxeEnder, 1), new Object[]{ "XXX", " C ", " # ", ('X'), enderIngot, ('#'), Items.diamond, ('C'), Items.diamond_pickaxe});
+        GameRegistry.addRecipe(new ItemStack(budimain.superoptool, 1), new Object[]{ "XCX", "YOY", " P ", ('X'), enderIngot, ('C'), pickaxeEnder, ('Y'), Blocks.redstone_block, ('O'), Items.nether_star, ('P'), Items.diamond});
+        GameRegistry.addRecipe(new ItemStack(budimain.swordEnder, 1), new Object[]{ "WEW", " E ", " S ", ('W'), new ItemStack(Items.skull, 1, 1), ('E'), enderIngot, ('S'), Items.diamond_sword});
+        GameRegistry.addRecipe(new ItemStack(budimain.axeEnder, 1), new Object[]{ "EE ", "SE ", " A ", ('E'), enderIngot, ('S'), Items.spider_eye, ('A'), Items.diamond_axe});
+        GameRegistry.addRecipe(new ItemStack(budimain.shovelEnder, 1), new Object[]{ " E ", " E ", " S ", ('E'), enderIngot, ('S'), Items.diamond_shovel});
+        GameRegistry.addRecipe(new ItemStack(budimain.BlockEnderFurnaceIdle, 1), new Object[]{ "EEE", "E E", "EFE", ('E'), enderIngot, ('F'), Blocks.furnace});
         
-        GameRegistry.addRecipe(new ItemStack(budimain.helmetender, 1), new Object[]{ "EHE", "E E", "   ", ('E'), enderiumIngot, ('H'), Items.diamond_helmet});
-        GameRegistry.addRecipe(new ItemStack(budimain.chestplateender, 1), new Object[]{ "E E", "ECE", "EEE", ('E'), enderiumIngot, ('C'), Items.diamond_chestplate});
-        GameRegistry.addRecipe(new ItemStack(budimain.leggingsender, 1), new Object[]{ "ELE", "E E", "E E", ('E'), enderiumIngot, ('L'), Items.diamond_leggings});
-        GameRegistry.addRecipe(new ItemStack(budimain.bootsender, 1), new Object[]{ "   ", "EBE", "E E", ('E'), enderiumIngot, ('B'), Items.diamond_boots});
+        GameRegistry.addRecipe(new ItemStack(budimain.helmetender, 1), new Object[]{ "EHE", "E E", "   ", ('E'), enderIngot, ('H'), Items.diamond_helmet});
+        GameRegistry.addRecipe(new ItemStack(budimain.chestplateender, 1), new Object[]{ "E E", "ECE", "EEE", ('E'), enderIngot, ('C'), Items.diamond_chestplate});
+        GameRegistry.addRecipe(new ItemStack(budimain.leggingsender, 1), new Object[]{ "ELE", "E E", "E E", ('E'), enderIngot, ('L'), Items.diamond_leggings});
+        GameRegistry.addRecipe(new ItemStack(budimain.bootsender, 1), new Object[]{ "   ", "EBE", "E E", ('E'), enderIngot, ('B'), Items.diamond_boots});
+    
+    
+    
     }
 
 

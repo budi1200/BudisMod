@@ -1,5 +1,7 @@
 package com.budi.blocks;
 
+import java.util.List;
+
 import com.budi.core.budimain;
 
 import cpw.mods.fml.relauncher.Side;
@@ -8,6 +10,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class BlockHelloWorld extends Block {
@@ -29,6 +33,11 @@ public class BlockHelloWorld extends Block {
     public IIcon getIcon(int p_149691_1_, int p_149691_2_)
     {
         return blockIcon;
+
+    }
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+    {
+        par3List.add("Creative Only(might change)");
 
     }
 }

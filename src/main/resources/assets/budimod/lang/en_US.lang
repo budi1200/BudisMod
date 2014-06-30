@@ -1,11 +1,59 @@
-tile.LolBlock.name=LoL Block (creative only)
-tile.HelloWorldBlock.name=Hello World Block (creative only)
-tile.blazing.name=Blaze Block
+itemGroup.Budis Stuff= Budis Stuff
+itemGroup.Budis Words= Budis Words
 
-itemGroup.Random Stuff= Budis Stuff
+**** BLOCKS *****
+tile.BlockBlaze.name= Blaze Block
+tile.BlockNetherStar.name= NetherStar Block
+tile.BlockEnderTorch.name= Ender Torch
+tile.BlockEnder.name= Ender Block
+tile.BlockHelloWorld.name= Hello World Block
+tile.BlockLol.name= Lol Block
+tile.BlockEnderOre.name= Ender Ore
+tile.BlockEnderFurnaceIdle.name= Ender Furnace
+tile.BlockEnderFurnaceActive.name= Ender Furnace
 
-item.LolItem.name=Its a LoL item
-item.pickaxeEnder.name=Ender Pickaxe
-item.enderiumIngot.name= Ender Ingot
-item.superoptool.name= SUPER OP PICKAXE
-entity.EntityTest.name=Test Mob
+item.axeEnder.name= Ender Axe
+item.rawender.name= Raw Ender
+item.LolItem.name= Its a LoL item!
+item.Goldbeef.name= Gold Beef
+item.swordEnder.name= Ender Sword
+item.leggingsender.name= Ender Leggings
+item.helmetender.name= Ender Helmet
+item.shovelEnder.name= Ender Shovel
+item.enderIngot.name= Ender Ingot
+item.bootsender.name= Ender Boots
+item.superoptool.name= Ender Op Pickaxe
+item.pickaxeEnder.name= Ender Pickaxe
+item.chestplateender.name= Ender Chestplate
+item.RawGoldbeef.name= Raw Gold Beef
+item.enderdust.name= Ender Dust
+
+
+
+item.wordA.name= Letter A
+item.wordB.name= Letter B
+item.wordC.name= Letter C
+item.wordD.name= Letter D
+item.wordE.name= Letter E
+item.wordF.name= Letter F
+item.wordG.name= Letter G
+item.wordH.name= Letter H
+item.wordI.name= Letter I
+item.wordK.name= Letter K
+item.wordJ.name= Letter J
+item.wordM.name= Letter M
+item.wordL.name= Letter L
+item.wordO.name= Letter O
+item.wordN.name= Letter N
+item.wordQ.name= Letter Q
+item.wordP.name= Letter P
+item.wordS.name= Letter S
+item.wordR.name= Letter R
+item.wordU.name= Letter U
+item.wordT.name= Letter T
+item.wordW.name= Letter W
+item.wordV.name= Letter V
+item.wordY.name= Letter Y
+item.wordX.name= Letter X
+item.wordZ.name= Letter Z
+

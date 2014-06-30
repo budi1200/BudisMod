@@ -5,6 +5,7 @@ import com.budi.stuff.budioptool;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,6 +24,9 @@ public class EnderOpTool extends budioptool
         super(material);
         this.setCreativeTab(budimain.tabrandom);
     }
+    public int getHarvestLevel (ItemStack stack, Block block, int meta){
+    	   return 0;
+    	   }
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack) {
         par1ItemStack.setTagInfo("ench", new NBTTagList());

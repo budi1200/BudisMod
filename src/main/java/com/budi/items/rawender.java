@@ -4,10 +4,11 @@ import com.budi.core.budimain;
 
 import net.minecraft.item.Item;
 
-public class enderiumdust extends Item{
+public class rawender extends Item{
 
-    public enderiumdust() {
+    public rawender() {
         this.setCreativeTab(budimain.tabrandom);
     }
 
 }
+

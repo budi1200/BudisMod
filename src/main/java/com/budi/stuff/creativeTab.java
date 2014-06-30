@@ -15,7 +15,7 @@ public class creativeTab extends CreativeTabs {
     @SideOnly(Side.CLIENT)
     public Item getTabIconItem()
     {
-        return budimain.enderiumIngot;
+        return budimain.enderIngot;
     }
 }
 
