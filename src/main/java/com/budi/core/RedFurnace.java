@@ -29,6 +29,8 @@ public class RedFurnace extends BlockContainer {
 	private IIcon iconFront;
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+	@SideOnly(Side.CLIENT)
+	private IIcon iconBottom;
 	
 	private static boolean keepInventory;
 	private Random rand = new Random();
@@ -45,6 +47,7 @@ public class RedFurnace extends BlockContainer {
 		this.blockIcon = iconregister.registerIcon(budimain.MODID + ":FurnaceSide");
 		this.iconFront = iconregister.registerIcon(this.isBurning2 ? budimain.MODID + ":FurnaceActive" : budimain.MODID + ":FurnaceIdle");
 		this.iconTop = iconregister.registerIcon(budimain.MODID + ":FurnaceTop");
+		this.iconBottom = iconregister.registerIcon(budimain.MODID + ":FurnaceTop");
 	}
 
 	public IIcon getIcon(int side, int meta) {
@@ -52,7 +55,9 @@ public class RedFurnace extends BlockContainer {
 			return iconTop;
 		} else if (side == 3) {
 			return iconFront;
-		} else {
+		} else if (side == 0) {
+			return iconBottom;
+		}else{
 			return this.blockIcon;
 		}
 	}
@@ -95,12 +100,29 @@ public class RedFurnace extends BlockContainer {
 		}
 	} 
 
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
-    {
-        int l = determineOrientation(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_);
-        p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, l, 2);
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack) {
+		int direction = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
-    }
+		if (direction == 0) {
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+		}
+
+		if (direction == 1) {
+			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+		}
+
+		if (direction == 2) {
+			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+		}
+
+		if (direction == 3) {
+			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+		}
+
+		if (itemstack.hasDisplayName()) {
+			((TileEntityRedFurnace) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
+		}
+	}
 
 	private void setDefaultDirection(World world, int x, int y, int z) {
 		if(!world.isRemote) {
@@ -272,24 +294,4 @@ public class RedFurnace extends BlockContainer {
 	public Item getItem(World world, int x, int y, int z) {
 		return Item.getItemFromBlock(budimain.BlockRedFurnaceIdle);
 	}
-    public static int determineOrientation(World p_150071_0_, int p_150071_1_, int p_150071_2_, int p_150071_3_, EntityLivingBase p_150071_4_)
-    {
-        if (MathHelper.abs((float)p_150071_4_.posX - (float)p_150071_1_) < 2.0F && MathHelper.abs((float)p_150071_4_.posZ - (float)p_150071_3_) < 2.0F)
-        {
-            double d0 = p_150071_4_.posY + 1.82D - (double)p_150071_4_.yOffset;
-
-            if (d0 - (double)p_150071_2_ > 2.0D)
-            {
-                return 1;
-            }
-
-            if ((double)p_150071_2_ - d0 > 0.0D)
-            {
-                return 0;
-            }
-        }
-
-        int l = MathHelper.floor_double((double)(p_150071_4_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-        return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
-    }
 }

@@ -13,7 +13,7 @@ public class CommonProxy {
         return 0; 
     }
 	public void registerTileEntities(){
-		GameRegistry.registerTileEntity(TileEntityRedFurnace.class, "TileEntityEnderFurnace");
+		GameRegistry.registerTileEntity(TileEntityRedFurnace.class, "TileEntityRedFurnace");
 	}
 
 }

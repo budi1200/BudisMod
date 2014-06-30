@@ -19,7 +19,7 @@ public class RedFurnaceRecipes {
 		return SMELTING_BASE;
 	}
 
-	private RedFurnaceRecipes(){
+	public RedFurnaceRecipes(){
 		this.addRecipie(budimain.RawGoldBeef, new ItemStack(budimain.Goldbeef), 1.0F);;
 	}
 

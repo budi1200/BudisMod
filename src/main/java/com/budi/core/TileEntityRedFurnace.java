@@ -130,15 +130,10 @@ public class TileEntityRedFurnace extends TileEntity implements ISidedInventory 
 			if(item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
 				Block block = Block.getBlockFromItem(item);
 
-				if(block == Blocks.sapling) return 0;
-				if(block == Blocks.coal_block) return 0;
 				if(block == Blocks.diamond_block) return 1600;
 				if(block == budimain.BlockEnder) return 16000;
 			}
-			if(item == Items.coal) return 0;
-			if(item == Items.stick) return 0;
-			if(item == Items.lava_bucket) return 0;
-			if(item == Items.blaze_rod) return 0;
+			if(item == budimain.LolItem) return 1000;
 
 		}
 		return 0;
