@@ -20,7 +20,7 @@ import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class RedFurnace extends BlockContainer {
+public class BlockEnderFurnace extends BlockContainer {
 	
 	private static boolean isBurning;
 	private final boolean isBurning2;
@@ -35,7 +35,7 @@ public class RedFurnace extends BlockContainer {
 	private static boolean keepInventory;
 	private Random rand = new Random();
 
-	public RedFurnace(boolean isActive) {
+	public BlockEnderFurnace(boolean isActive) {
 		super(Material.iron);
 		setCreativeTab(budimain.tabrandom);
 		setHardness(3.5F);
@@ -63,7 +63,7 @@ public class RedFurnace extends BlockContainer {
 	}
 	
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(budimain.BlockRedFurnaceIdle);
+		return Item.getItemFromBlock(budimain.BlockEnderFurnaceIdle);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -120,7 +120,7 @@ public class RedFurnace extends BlockContainer {
 		}
 
 		if (itemstack.hasDisplayName()) {
-			((TileEntityRedFurnace) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
+			((TileEntityEnderFurnace) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
 		}
 	}
 
@@ -153,7 +153,7 @@ public class RedFurnace extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9) {
 	if (!player.isSneaking()) {
-	player.openGui(budimain.instance, budimain.guiRedFurnace, var1, var2, var3, var4);
+	player.openGui(budimain.instance, budimain.guiEnderFurnace, var1, var2, var3, var4);
 	return true;
 	} else {
 	return false;
@@ -162,7 +162,7 @@ public class RedFurnace extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int i) {
-		return new TileEntityRedFurnace();
+		return new TileEntityEnderFurnace();
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -236,9 +236,9 @@ public class RedFurnace extends BlockContainer {
 		isBurning = true;
 
 		if (burning) {
-			world.setBlock(x, y, z, budimain.BlockRedFurnaceActive);
+			world.setBlock(x, y, z, budimain.BlockEnderFurnaceActive);
 		} else {
-			world.setBlock(x, y, z, budimain.BlockRedFurnaceIdle);
+			world.setBlock(x, y, z, budimain.BlockEnderFurnaceIdle);
 		}
 
 		isBurning = false;
@@ -252,11 +252,11 @@ public class RedFurnace extends BlockContainer {
 
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		if (!isBurning) {
-			TileEntityRedFurnace tileentityredfurnace = (TileEntityRedFurnace) world.getTileEntity(x, y, z);
+			TileEntityEnderFurnace tileentityenderfurnace = (TileEntityEnderFurnace) world.getTileEntity(x, y, z);
 
-			if (tileentityredfurnace != null) {
-				for (int i = 0; i < tileentityredfurnace.getSizeInventory(); ++i) {
-					ItemStack itemstack = tileentityredfurnace.getStackInSlot(i);
+			if (tileentityenderfurnace != null) {
+				for (int i = 0; i < tileentityenderfurnace.getSizeInventory(); ++i) {
+					ItemStack itemstack = tileentityenderfurnace.getStackInSlot(i);
 
 					if (itemstack != null) {
 						float f = this.rand.nextFloat() * 0.6F + 0.1F;
@@ -292,6 +292,6 @@ public class RedFurnace extends BlockContainer {
 	}
 	
 	public Item getItem(World world, int x, int y, int z) {
-		return Item.getItemFromBlock(budimain.BlockRedFurnaceIdle);
+		return Item.getItemFromBlock(budimain.BlockEnderFurnaceIdle);
 	}
 }

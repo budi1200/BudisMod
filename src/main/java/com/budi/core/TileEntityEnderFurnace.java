@@ -14,7 +14,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileEntityRedFurnace extends TileEntity implements ISidedInventory {
+public class TileEntityEnderFurnace extends TileEntity implements ISidedInventory {
 
 	private String localizedName;
 
@@ -34,7 +34,7 @@ public class TileEntityRedFurnace extends TileEntity implements ISidedInventory 
 	}
 
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.localizedName : "Red Furnace";
+		return this.hasCustomInventoryName() ? this.localizedName : "Ender Furnace";
 	}
 
 	public boolean hasCustomInventoryName() {
@@ -177,7 +177,7 @@ public class TileEntityRedFurnace extends TileEntity implements ISidedInventory 
 
 		if (flag != this.burnTime > 0) {
 			flag1 = true;
-			RedFurnace.updateBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+			BlockEnderFurnace.updateBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 		}
 
 		if (flag1) {

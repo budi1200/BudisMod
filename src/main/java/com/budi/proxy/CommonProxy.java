@@ -1,7 +1,7 @@
 package com.budi.proxy;
 
 
-import com.budi.core.TileEntityRedFurnace;
+import com.budi.core.TileEntityEnderFurnace;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -13,7 +13,7 @@ public class CommonProxy {
         return 0; 
     }
 	public void registerTileEntities(){
-		GameRegistry.registerTileEntity(TileEntityRedFurnace.class, "TileEntityRedFurnace");
+		GameRegistry.registerTileEntity(TileEntityEnderFurnace.class, "TileEntityRedFurnace");
 	}
 
 }

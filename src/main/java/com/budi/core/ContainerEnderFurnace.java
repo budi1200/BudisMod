@@ -12,15 +12,15 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerRedFurnace extends Container {
+public class ContainerEnderFurnace extends Container {
 	
-	private TileEntityRedFurnace fermenter;
+	private TileEntityEnderFurnace fermenter;
 	
 	public int lastBurnTime;
 	public int lastCurrentItemBurnTime;
 	public int lastCookTime;
 
-	public ContainerRedFurnace(InventoryPlayer player, TileEntityRedFurnace tileentity){
+	public ContainerEnderFurnace(InventoryPlayer player, TileEntityEnderFurnace tileentity){
 		this.fermenter = tileentity;
 		this.addSlotToContainer(new Slot(tileentity, 0, 56, 17));
 		this.addSlotToContainer(new Slot(tileentity, 1, 56, 53));
@@ -101,7 +101,7 @@ public class ContainerRedFurnace extends Container {
 		if(!this.mergeItemStack(itemstack1, 0, 1, false)){
 		return null;
 		}
-		}else if(TileEntityRedFurnace.isItemFuel(itemstack1)){
+		}else if(TileEntityEnderFurnace.isItemFuel(itemstack1)){
 		if(!this.mergeItemStack(itemstack1, 1, 2, false)){
 		return null;
 		}

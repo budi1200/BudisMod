@@ -8,14 +8,14 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiRedFurnace extends GuiContainer {
+public class GuiEnderFurnace extends GuiContainer {
 	
 	public static final ResourceLocation bground = new ResourceLocation(budimain.MODID, "textures/gui/GuiFurnace.png");
 	
-	public TileEntityRedFurnace fermenter;
+	public TileEntityEnderFurnace fermenter;
 
-	public GuiRedFurnace(InventoryPlayer invPlayer, TileEntityRedFurnace tile) {
-		super(new ContainerRedFurnace(invPlayer, tile));
+	public GuiEnderFurnace(InventoryPlayer invPlayer, TileEntityEnderFurnace tile) {
+		super(new ContainerEnderFurnace(invPlayer, tile));
 		
 		this.fermenter = tile;
 

@@ -8,18 +8,18 @@ import java.util.Map.Entry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class RedFurnaceRecipes {
+public class EnderFurnaceRecipes {
 
-	private static final RedFurnaceRecipes SMELTING_BASE = new RedFurnaceRecipes();
+	private static final EnderFurnaceRecipes SMELTING_BASE = new EnderFurnaceRecipes();
 
 	private Map smeltingList = new HashMap();
 	private Map experienceList = new HashMap();
 
-	public static RedFurnaceRecipes smelting() {
+	public static EnderFurnaceRecipes smelting() {
 		return SMELTING_BASE;
 	}
 
-	public RedFurnaceRecipes(){
+	public EnderFurnaceRecipes(){
 		this.addRecipie(budimain.RawGoldBeef, new ItemStack(budimain.Goldbeef), 1.0F);;
 	}
 

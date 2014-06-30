@@ -65,9 +65,9 @@ public class budimain
     public static Block BlockEnder;
     public static Block BlockNetherStar;
     public static Block BlockEnderTorch;
-    public static final int guiRedFurnace = 0;
-    public static Block BlockRedFurnaceIdle;
-    public static Block BlockRedFurnaceActive;
+    public static final int guiEnderFurnace = 0;
+    public static Block BlockEnderFurnaceIdle;
+    public static Block BlockEnderFurnaceActive;
 
     // items
     public static Item LolItem;
@@ -146,7 +146,7 @@ public class budimain
     public void init(FMLInitializationEvent event){
     proxy.registerRenderers();
     NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
-    GameRegistry.registerTileEntity(TileEntityRedFurnace.class, "tileentityredfurnace");
+    GameRegistry.registerTileEntity(TileEntityEnderFurnace.class, "tileentityenderfurnace");
         // Blocks
         //ender ore
         BlockEnderOre = new BlockEnderOre(Material.rock).setBlockName("BlockEnderOre").setCreativeTab(tabrandom);
@@ -180,11 +180,11 @@ public class budimain
         GameRegistry.registerBlock(BlockNetherStar, BlockNetherStar.getUnlocalizedName().substring(5));
         
         // furnace       
-        BlockRedFurnaceIdle = new RedFurnace(false).setBlockName("BlockRedFurnaceIdle").setHardness(3.5F).setCreativeTab(budimain.tabrandom);
-        GameRegistry.registerBlock(BlockRedFurnaceIdle, "BlockRedFurnaceIdle");
+        BlockEnderFurnaceIdle = new BlockEnderFurnace(false).setBlockName("BlockEnderFurnaceIdle").setHardness(3.5F).setCreativeTab(budimain.tabrandom);
+        GameRegistry.registerBlock(BlockEnderFurnaceIdle, "BlockEnderFurnaceIdle");
         
-        BlockRedFurnaceActive = new RedFurnace(true).setBlockName("BlockRedFurnaceActive").setHardness(3.5F).setLightOpacity((int) 0.8F);
-        GameRegistry.registerBlock(BlockRedFurnaceActive, "BlockRedFurnaceActive"); 
+        BlockEnderFurnaceActive = new BlockEnderFurnace(true).setBlockName("BlockEnderFurnaceActive").setHardness(3.5F).setLightOpacity((int) 0.8F);
+        GameRegistry.registerBlock(BlockEnderFurnaceActive, "BlockEnderFurnaceActive"); 
         // Items
 
 
@@ -356,7 +356,7 @@ public class budimain
         GameRegistry.addRecipe(new ItemStack(budimain.swordEnder, 1), new Object[]{ "WEW", " E ", " S ", ('W'), new ItemStack(Items.skull, 1, 1), ('E'), enderiumIngot, ('S'), Items.diamond_sword});
         GameRegistry.addRecipe(new ItemStack(budimain.axeEnder, 1), new Object[]{ "EE ", "SE ", " A ", ('E'), enderiumIngot, ('S'), Items.spider_eye, ('A'), Items.diamond_axe});
         GameRegistry.addRecipe(new ItemStack(budimain.shovelEnder, 1), new Object[]{ " E ", " E ", " S ", ('E'), enderiumIngot, ('S'), Items.diamond_shovel});
-        GameRegistry.addRecipe(new ItemStack(budimain.BlockRedFurnaceIdle, 1), new Object[]{ "EEE", "E E", "EFE", ('E'), enderiumIngot, ('F'), Blocks.furnace});
+        GameRegistry.addRecipe(new ItemStack(budimain.BlockEnderFurnaceIdle, 1), new Object[]{ "EEE", "E E", "EFE", ('E'), enderiumIngot, ('F'), Blocks.furnace});
         
         GameRegistry.addRecipe(new ItemStack(budimain.helmetender, 1), new Object[]{ "EHE", "E E", "   ", ('E'), enderiumIngot, ('H'), Items.diamond_helmet});
         GameRegistry.addRecipe(new ItemStack(budimain.chestplateender, 1), new Object[]{ "E E", "ECE", "EEE", ('E'), enderiumIngot, ('C'), Items.diamond_chestplate});
