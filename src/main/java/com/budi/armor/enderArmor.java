@@ -29,7 +29,7 @@ public class enderArmor extends ItemArmor {
     }
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack armor) {
-        player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 50, 4));
+        player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 50, 0));
         player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 100, 5));
         player.addPotionEffect(new PotionEffect(Potion.resistance.id, 50, 2));
     }
