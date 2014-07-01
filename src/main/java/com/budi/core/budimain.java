@@ -3,8 +3,9 @@ package com.budi.core;
 import com.budi.alphabet.*;
 import com.budi.armor.enderArmor;
 import com.budi.blocks.*;
+import com.budi.entity.BudiEntity;
+import com.budi.entity.DanielkinzEntity;
 import com.budi.food.*;
-import com.budi.items.LolItem;
 import com.budi.items.*;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
@@ -111,7 +112,7 @@ public class budimain
     public static Item wordY;
     public static Item wordZ;
     // adds material
-    public static final Item.ToolMaterial enderium = EnumHelper.addToolMaterial("enderium", 3, 10000, 30.0F, 5.0F, 30);
+    public static final Item.ToolMaterial ender = EnumHelper.addToolMaterial("ender", 3, 10000, 30.0F, 5.0F, 30);
     public static final Item.ToolMaterial oprock = EnumHelper.addToolMaterial("oprock", 3, 100000, 1000.0F, 0.1F, 0);
     public static ItemArmor.ArmorMaterial enderArmor = EnumHelper.addArmorMaterial("enderium", 66, new int[] {3, 9, 6, 3}, 30);
     //entity
@@ -121,6 +122,8 @@ public class budimain
     {
     	proxy.registerRenderers();
     	proxy.registerTileEntities();
+    	   BudiEntity.budimain();
+    	   DanielkinzEntity.budimain();
     }
     public static void registerEntity(Class entityClass, String name)
     {
@@ -203,21 +206,21 @@ public class budimain
 
         // Enderium Pickaxe
 
-        pickaxeEnder = new EnderPickaxe(enderium).setUnlocalizedName("pickaxeEnder").setTextureName(budimain.MODID + ":" + "pickaxeEnder");
+        pickaxeEnder = new EnderPickaxe(ender).setUnlocalizedName("pickaxeEnder").setTextureName(budimain.MODID + ":" + "pickaxeEnder");
         GameRegistry.registerItem(pickaxeEnder, "pickaxeEnder");
 
         // enderium shovel
 
-        shovelEnder = new EnderShovel(enderium).setUnlocalizedName("shovelEnder").setTextureName(budimain.MODID + ":" + "shovelEnder");
+        shovelEnder = new EnderShovel(ender).setUnlocalizedName("shovelEnder").setTextureName(budimain.MODID + ":" + "shovelEnder");
         GameRegistry.registerItem(shovelEnder, "shovelEnder");
         // enderium axe
 
-        axeEnder = new EnderAxe(enderium).setUnlocalizedName("axeEnder").setTextureName(budimain.MODID + ":"	+ "axeEnder");
+        axeEnder = new EnderAxe(ender).setUnlocalizedName("axeEnder").setTextureName(budimain.MODID + ":"	+ "axeEnder");
         GameRegistry.registerItem(axeEnder, "axeEnder");
 
         // enderium sword
 
-        swordEnder = new EnderSword(enderium).setUnlocalizedName("swordEnder").setTextureName(budimain.MODID + ":" + "swordEnder");
+        swordEnder = new EnderSword(ender).setUnlocalizedName("swordEnder").setTextureName(budimain.MODID + ":" + "swordEnder");
         GameRegistry.registerItem(swordEnder, "swordEnder");
 
         // super op tool
