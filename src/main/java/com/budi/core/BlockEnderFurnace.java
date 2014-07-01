@@ -36,10 +36,12 @@ public class BlockEnderFurnace extends BlockContainer {
 	private Random rand = new Random();
 
 	public BlockEnderFurnace(boolean isActive) {
-		super(Material.iron);
-		setCreativeTab(budimain.tabrandom);
+		super(Material.iron);;
 		setHardness(3.5F);
 		isBurning2 = isActive;
+		if (this.isBurning2){
+			this.setLightLevel(0.9F);
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
