@@ -56,24 +56,11 @@ public class BlockEnderFurnace extends BlockContainer {
 	}
 
 	public IIcon getIcon(int side, int meta) {
-		if (side == 1) {
-			return iconTop;
-		} else if (side == 3) {
-			return iconFront;
-		} else if (side == 0) {
-			return iconBottom;
-		}else{
-			return this.blockIcon;
-		}
+		return side == 1 ? this.iconTop : (side == 0 ? this.iconTop : (side != meta ? this.blockIcon : this.iconFront));
 	}
 	
 	public Item getItemDropped(int i, Random random, int j) {
 		return Item.getItemFromBlock(budimain.BlockEnderFurnaceIdle);
-	}
-	
-	public void onBlockAdded(World world, int x, int y, int z){
-		super.onBlockAdded(world, x, y, z);
-		this.setDefaultDirection(world, x, y, z);
 	}
 	
 	private void setDefaultDirection(World world, int x, int y, int z) {
@@ -101,6 +88,10 @@ public class BlockEnderFurnace extends BlockContainer {
 			world.setBlockMetadataWithNotify(x, y, z, b0, 2);
 		}
 		
+	}
+	public void onBlockAdded(World world, int x, int y, int z){
+		super.onBlockAdded(world, x, y, z);
+		this.setDefaultDirection(world, x, y, z);
 	}
 
 	@Override
@@ -200,7 +191,7 @@ public class BlockEnderFurnace extends BlockContainer {
 			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}
 		if(itemstack.hasDisplayName()){
-			//((TileEntityEnderFurnace)world.getTileEntity(x, y, z).setGuiDisplayName(itemstack.getDisplayName());
+			((TileEntityEnderFurnace)world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
 		}
 	}
 	

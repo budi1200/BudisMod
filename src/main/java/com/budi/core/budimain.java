@@ -3,14 +3,13 @@ package com.budi.core;
 import com.budi.alphabet.*;
 import com.budi.armor.enderArmor;
 import com.budi.blocks.*;
-import com.budi.entity.BudiEntity;
-import com.budi.entity.DanielkinzEntity;
+import com.budi.entity.*;
 import com.budi.food.*;
-import com.budi.gui.GuiHandler;
+import com.budi.gui.*;
 import com.budi.items.*;
-import com.budi.proxy.CommonProxy;
+import com.budi.proxy.*;
 import com.budi.stuff.*;
-import com.budi.tileentity.TileEntityEnderFurnace;
+import com.budi.tileentity.*;
 import com.budi.tools.*;
 
 import cpw.mods.fml.common.Mod;
@@ -171,7 +170,6 @@ public class budimain
         GameRegistry.registerBlock(BlockEnderFurnaceIdle, "BlockEnderFurnaceIdle");
         
         BlockEnderFurnaceActive = new BlockEnderFurnace(true).setBlockName("BlockEnderFurnaceActive").setHardness(3.5F);
-        GameRegistry.registerBlock(BlockEnderFurnaceActive, "BlockEnderFurnaceActive"); 
         // Items
 
 
