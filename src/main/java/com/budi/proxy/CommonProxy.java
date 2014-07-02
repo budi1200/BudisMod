@@ -1,7 +1,7 @@
 package com.budi.proxy;
 
 
-import com.budi.core.TileEntityEnderFurnace;
+import com.budi.tileentity.TileEntityEnderFurnace;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

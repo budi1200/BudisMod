@@ -1,4 +1,7 @@
-package com.budi.core;
+package com.budi.tileentity;
+
+import com.budi.blocks.BlockEnderFurnace;
+import com.budi.core.budimain;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

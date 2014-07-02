@@ -1,6 +1,10 @@
-package com.budi.core;
+package com.budi.gui;
 
 import org.lwjgl.opengl.GL11;
+
+import com.budi.container.ContainerEnderFurnace;
+import com.budi.core.budimain;
+import com.budi.tileentity.TileEntityEnderFurnace;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;

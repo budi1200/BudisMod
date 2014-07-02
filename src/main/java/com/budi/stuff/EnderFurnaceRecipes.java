@@ -1,9 +1,11 @@
-package com.budi.core;
+package com.budi.stuff;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import com.budi.core.budimain;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

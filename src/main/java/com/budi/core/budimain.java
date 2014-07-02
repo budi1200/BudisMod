@@ -6,9 +6,11 @@ import com.budi.blocks.*;
 import com.budi.entity.BudiEntity;
 import com.budi.entity.DanielkinzEntity;
 import com.budi.food.*;
+import com.budi.gui.GuiHandler;
 import com.budi.items.*;
 import com.budi.proxy.CommonProxy;
 import com.budi.stuff.*;
+import com.budi.tileentity.TileEntityEnderFurnace;
 import com.budi.tools.*;
 
 import cpw.mods.fml.common.Mod;

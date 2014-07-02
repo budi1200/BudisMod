@@ -1,6 +1,9 @@
-package com.budi.core;
+package com.budi.blocks;
 
 import java.util.Random;
+
+import com.budi.core.budimain;
+import com.budi.tileentity.TileEntityEnderFurnace;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -68,66 +71,13 @@ public class BlockEnderFurnace extends BlockContainer {
 		return Item.getItemFromBlock(budimain.BlockEnderFurnaceIdle);
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public void onBlockAdded(World world, int x, int y, int z) {
+	public void onBlockAdded(World world, int x, int y, int z){
 		super.onBlockAdded(world, x, y, z);
-		this.direction(world, x, y, z);
+		this.setDefaultDirection(world, x, y, z);
 	}
-
-	private void direction(World world, int x, int y, int z) {
-		if (!world.isRemote) {
-			Block direction = world.getBlock(x, y, z - 1);
-			Block direction1 = world.getBlock(x, y, z + 1);
-			Block direction2 = world.getBlock(x - 1, y, z);
-			Block direction3 = world.getBlock(x + 1, y, z);
-			byte byte0 = 3;
-
-			if (direction.func_149730_j() && direction.func_149730_j()) {
-				byte0 = 3;
-			}
-
-			if (direction1.func_149730_j() && direction1.func_149730_j()) {
-				byte0 = 2;
-			}
-
-			if (direction2.func_149730_j() && direction2.func_149730_j()) {
-				byte0 = 5;
-			}
-
-			if (direction3.func_149730_j() && direction3.func_149730_j()) {
-				byte0 = 4;
-			}
-
-			world.setBlockMetadataWithNotify(x, y, z, byte0, 2);
-		}
-	} 
-
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack) {
-		int direction = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-
-		if (direction == 0) {
-			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-		}
-
-		if (direction == 1) {
-			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-		}
-
-		if (direction == 2) {
-			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-		}
-
-		if (direction == 3) {
-			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-		}
-
-		if (itemstack.hasDisplayName()) {
-			((TileEntityEnderFurnace) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
-		}
-	}
-
+	
 	private void setDefaultDirection(World world, int x, int y, int z) {
-		if(!world.isRemote) {
+		if(!world.isRemote){
 			Block b1 = world.getBlock(x, y, z - 1);
 			Block b2 = world.getBlock(x, y, z + 1);
 			Block b3 = world.getBlock(x - 1, y, z);
@@ -135,23 +85,24 @@ public class BlockEnderFurnace extends BlockContainer {
 			
 			byte b0 = 3;
 			
-			if(b1.func_149730_j() && !b2.func_149730_j()) {
+			if(b1.func_149730_j() && !b2.func_149730_j()){
 				b0 = 3;
 			}
-			if(b2.func_149730_j() && !b1.func_149730_j()) {
+			if(b2.func_149730_j() && !b1.func_149730_j()){
 				b0 = 2;
 			}
-			if(b3.func_149730_j() && !b4.func_149730_j()) {
+			if(b3.func_149730_j() && !b4.func_149730_j()){
 				b0 = 5;
 			}
-			if(b4.func_149730_j() && !b3.func_149730_j()) {
+			if(b4.func_149730_j() && !b3.func_149730_j()){
 				b0 = 4;
 			}
 			
 			world.setBlockMetadataWithNotify(x, y, z, b0, 2);
 		}
-	} 
-	
+		
+	}
+
 	@Override
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9) {
 	if (!player.isSneaking()) {
@@ -232,6 +183,28 @@ public class BlockEnderFurnace extends BlockContainer {
             }
 		}
 	}
+	
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack){
+		int l = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		
+		if(l == 0){
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+		}
+		if(l == 1){
+			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+		}
+		if(l == 2){
+			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+		}
+		if(l == 3){
+			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+		}
+		if(itemstack.hasDisplayName()){
+			//((TileEntityEnderFurnace)world.getTileEntity(x, y, z).setGuiDisplayName(itemstack.getDisplayName());
+		}
+	}
+	
+	
 	public static void updateBlockState(boolean burning, World world, int x, int y, int z) {
 		int direction = world.getBlockMetadata(x, y, z);
 		TileEntity tileentity = world.getTileEntity(x, y, z);

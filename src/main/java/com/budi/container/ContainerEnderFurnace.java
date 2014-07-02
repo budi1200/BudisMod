@@ -1,4 +1,6 @@
-package com.budi.core;
+package com.budi.container;
+
+import com.budi.tileentity.TileEntityEnderFurnace;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
