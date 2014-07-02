@@ -127,17 +127,6 @@ public class budimain
     	   BudiEntity.budimain();
     	   DanielkinzEntity.budimain();
     }
-    public static void registerEntity(Class entityClass, String name)
-    {
-        int entityID = EntityRegistry.findGlobalUniqueEntityId();
-        long seed = name.hashCode();
-        Random rand = new Random(seed);
-        int primaryColor = rand.nextInt() * 16777215;
-        int secondaryColor = rand.nextInt() * 16777215;
-        EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
-        EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
-        EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));
-    }
 
     // add blocks/items/entity's
     @EventHandler
@@ -228,10 +217,6 @@ public class budimain
         // super op tool
         superoptool = new EnderOpTool(oprock).setUnlocalizedName("superoptool").setTextureName(budimain.MODID + ":" + "superoptool");
         GameRegistry.registerItem(superoptool, superoptool.getUnlocalizedName().substring(5));
-
-        // test entity
-
-        registerEntity(RandomEntity.class, "EntityTest");
 
         //generation
 

@@ -22,7 +22,7 @@ public class EnderFurnaceRecipes {
 	}
 
 	public EnderFurnaceRecipes(){
-		this.addRecipie(budimain.RawGoldBeef, new ItemStack(budimain.Goldbeef), 1.0F);;
+		this.addRecipie(budimain.RawGoldBeef, new ItemStack(budimain.Goldbeef), 1.0F);
 	}
 
 	public void addRecipie(Item item, ItemStack itemstack, float experience){
